@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kaboomroads.palehollow.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
+    "BelowZeroRetrogenMixin",
+    "BlockBehaviourPropertiesMixin",
+    "BlockEntityTypeMixin",
+    "OverworldBiomeBuilderMixin",
+    "ShearsItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"0": "palehollow:block/palethorn",
+		"particle": "palehollow:block/palethorn"
+	},
+	"elements": [
+		{
+			"from": [4, 4, 0],
+			"to": [12, 12, 4],
+			"faces": {
+				"north": {"uv": [4, 4, 12, 12], "texture": "#0", "cullface": "north"},
+				"east": {"uv": [12, 4, 16, 12], "texture": "#0"},
+				"west": {"uv": [0, 4, 4, 12], "texture": "#0"},
+				"up": {"uv": [4, 0, 12, 4], "texture": "#0"},
+				"down": {"uv": [4, 12, 12, 16], "texture": "#0"}
+			}
+		}
+	]
+}

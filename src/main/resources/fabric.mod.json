@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "${modid}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "Pale Garden, underground",
+  "authors": [],
+  "contact": {},
+  "license": "GPLv3",
+  "icon": "assets/palehollow/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.kaboomroads.palehollow.data.PaleHollowDataGenerator"
+    ],
+    "client": [
+      "com.kaboomroads.palehollow.client.PaleHollowClient"
+    ],
+    "main": [
+      "com.kaboomroads.palehollow.PaleHollow"
+    ]
+  },
+  "accessWidener": "${modid}.accesswidener",
+  "mixins": [
+    "palehollow.mixins.json",
+    {
+      "config": "palehollow.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
