@@ -12,3 +12,5 @@ accessible field net/minecraft/world/level/block/state/properties/IntegerPropert
 accessible field net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity cookingProgress I
 accessible field net/minecraft/data/worldgen/placement/VegetationPlacements TREE_THRESHOLD Lnet/minecraft/world/level/levelgen/placement/PlacementModifier;
 accessible field net/minecraft/data/loot/BlockLootSubProvider NORMAL_LEAVES_STICK_CHANCES [F
+accessible field net/minecraft/client/resources/sounds/AbstractSoundInstance volume F
+accessible field net/minecraft/client/resources/sounds/AbstractSoundInstance pitch F

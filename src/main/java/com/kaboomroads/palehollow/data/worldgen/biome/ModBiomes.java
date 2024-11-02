@@ -49,6 +49,7 @@ public class ModBiomes {
         builder2.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacements.PALE_HOLLOW_VOIDGRASS_PATCH);
         builder2.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacements.PALE_HOLLOW_MOSS_PATCH);
         builder2.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacements.TAR_POOL);
+        builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacements.PALE_HANGING_MOSS_PATCH);
         BiomeDefaultFeatures.addPlainGrass(builder2);
         BiomeDefaultFeatures.addPlainVegetation(builder2);
         BiomeDefaultFeatures.addDefaultMushrooms(builder2);
@@ -56,7 +57,7 @@ public class ModBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(builder2);
         BiomeDefaultFeatures.addDefaultExtraVegetation(builder2);
 
-        Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_FOREST);
+        Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_DEEP_DARK);
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(true)
                 .temperature(0.7F)

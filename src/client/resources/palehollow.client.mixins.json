@@ -4,6 +4,7 @@
   "package": "com.kaboomroads.palehollow.client.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "SoundEngineMixin"
   ],
   "injectors": {
     "defaultRequire": 1

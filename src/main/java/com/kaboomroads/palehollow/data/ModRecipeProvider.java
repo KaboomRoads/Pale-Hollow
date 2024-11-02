@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.SuspiciousEffectHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -36,6 +37,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 chestBoat(ModItems.MUTE_CHEST_BOAT, ModItems.MUTE_BOAT);
                 oneToOneConversionRecipe(Items.BLACK_DYE, ModBlocks.TARFLOWER, "black_dye");
                 oreSmelting(ImmutableList.of(ModItems.RAW_TAR, ModItems.RAW_TAR_CHUNK), RecipeCategory.MISC, ModItems.TAR, 0.7F, 400, "tar");
+                suspiciousStew(ModItems.TARFLOWER, SuspiciousEffectHolder.tryGet(ModItems.TARFLOWER));
             }
         };
     }

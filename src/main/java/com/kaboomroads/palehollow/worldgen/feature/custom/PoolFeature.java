@@ -117,8 +117,10 @@ public class PoolFeature extends Feature<PoolFeature.Configuration> {
                             if (blockState4.isSolid() && !blockState4.is(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE)) {
                                 BlockPos blockPos3 = blockPos.offset(t, v, uxx);
                                 worldGenLevel.setBlock(blockPos3, configuration.barrier().getState(randomSource, blockPos), 2);
-                                if (randomSource.nextFloat() < configuration.vegetationChance)
-                                    configuration.vegetationFeature.value().place(worldGenLevel, featurePlaceContext.chunkGenerator(), randomSource, blockPos3.above());
+                                BlockPos above = blockPos3.above();
+                                BlockState state = worldGenLevel.getBlockState(above);
+                                if ((state.isAir()) && randomSource.nextFloat() < configuration.vegetationChance)
+                                    configuration.vegetationFeature.value().place(worldGenLevel, featurePlaceContext.chunkGenerator(), randomSource, above);
                                 this.markAboveForPostProcessing(worldGenLevel, blockPos3);
                             }
                         }

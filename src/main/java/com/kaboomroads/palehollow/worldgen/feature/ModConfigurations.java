@@ -17,18 +17,18 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HangingMossBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+
+import java.util.List;
 
 public class ModConfigurations {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_HOLLOW_MOSS_PATCH = createKey("pale_hollow_moss_patch");
@@ -38,6 +38,7 @@ public class ModConfigurations {
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_PALE_HOLLOW = createKey("trees_pale_hollow");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TAR_POOL = createKey("tar_pool");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TAR_POOL_VEGETATION = createKey("tar_pool_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_HANGING_MOSS_PATCH = createKey("pale_hanging_moss_patch");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
@@ -139,6 +140,24 @@ public class ModConfigurations {
                         ConstantInt.of(-3),
                         PlacementUtils.inlinePlaced(holderGetter.getOrThrow(TAR_POOL_VEGETATION)),
                         0.1F
+                )
+        );
+        FeatureUtils.register(
+                bootstrapContext,
+                PALE_HANGING_MOSS_PATCH,
+                Feature.BLOCK_COLUMN,
+                new BlockColumnConfiguration(
+                        List.of(
+                                BlockColumnConfiguration.layer(UniformInt.of(1, 7),
+                                        BlockStateProvider.simple(Blocks.PALE_HANGING_MOSS.defaultBlockState().setValue(HangingMossBlock.TIP, false))
+                                ),
+                                BlockColumnConfiguration.layer(ConstantInt.of(1),
+                                        BlockStateProvider.simple(Blocks.PALE_HANGING_MOSS.defaultBlockState())
+                                )
+                        ),
+                        Direction.DOWN,
+                        BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                        true
                 )
         );
     }
