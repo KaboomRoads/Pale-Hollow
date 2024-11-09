@@ -9,7 +9,8 @@
     "BlockBehaviourPropertiesMixin",
     "BlockEntityTypeMixin",
     "OverworldBiomeBuilderMixin",
-    "ShearsItemMixin"
+    "ShearsItemMixin",
+    "SimpleBlockFeatureMixin"
   ],
   "injectors": {
     "defaultRequire": 1

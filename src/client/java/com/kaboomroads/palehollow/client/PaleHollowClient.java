@@ -25,6 +25,7 @@ public class PaleHollowClient implements ClientModInitializer {
                 , ModBlocks.POTTED_MUTE_SAPLING
                 , ModBlocks.TARFLOWER
                 , ModBlocks.POTTED_TARFLOWER
+                , ModBlocks.PALEFRUIT_PLANT
         );
     }
 }

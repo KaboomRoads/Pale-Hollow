@@ -56,6 +56,11 @@ public class ModItems {
     public static final Item RAW_TAR_CHUNK = registerItem("raw_tar_chunk");
     public static final Item TAR = registerItem("tar");
     public static final Item TARFLOWER = registerBlock(ModBlocks.TARFLOWER);
+    public static final Item PALEFRUIT = registerItem("palefruit", createBlockItemWithCustomItemName(ModBlocks.PALEFRUIT_PLANT), new Item.Properties().food(ModFoods.PALEFRUIT));
+
+    private static Function<Item.Properties, Item> createBlockItemWithCustomItemName(Block block) {
+        return properties -> new BlockItem(block, properties.useItemDescriptionPrefix());
+    }
 
     public static Item registerBlock(Block block) {
         return registerBlock(block, BlockItem::new);

@@ -2,8 +2,10 @@ package com.kaboomroads.palehollow.worldgen.feature;
 
 import com.kaboomroads.palehollow.PaleHollow;
 import com.kaboomroads.palehollow.block.ModBlocks;
+import com.kaboomroads.palehollow.block.custom.PalefruitPlantBlock;
 import com.kaboomroads.palehollow.worldgen.feature.custom.PoolFeature;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -39,6 +41,7 @@ public class ModConfigurations {
     public static final ResourceKey<ConfiguredFeature<?, ?>> TAR_POOL = createKey("tar_pool");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TAR_POOL_VEGETATION = createKey("tar_pool_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_HANGING_MOSS_PATCH = createKey("pale_hanging_moss_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALEFRUIT_PLANT_PATCH = createKey("palefruit_plant_patch");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
@@ -158,6 +161,25 @@ public class ModConfigurations {
                         Direction.DOWN,
                         BlockPredicate.ONLY_IN_AIR_PREDICATE,
                         true
+                )
+        );
+        FeatureUtils.register(
+                bootstrapContext,
+                PALEFRUIT_PLANT_PATCH,
+                Feature.SIMPLE_RANDOM_SELECTOR,
+                new SimpleRandomFeatureConfiguration(HolderSet.direct(makePalefruitPlant()))
+        );
+    }
+
+    private static Holder<PlacedFeature> makePalefruitPlant() {
+        return PlacementUtils.inlinePlaced(
+                Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(
+                        new WeightedStateProvider(
+                                SimpleWeightedRandomList.<BlockState>builder()
+                                        .add(ModBlocks.PALEFRUIT_PLANT.defaultBlockState().setValue(PalefruitPlantBlock.AGE, 3), 1)
+                                        .add(ModBlocks.PALEFRUIT_PLANT.defaultBlockState().setValue(PalefruitPlantBlock.AGE, 2), 2)
+                        )
                 )
         );
     }

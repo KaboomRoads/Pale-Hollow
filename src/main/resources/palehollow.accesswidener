@@ -14,3 +14,5 @@ accessible field net/minecraft/data/worldgen/placement/VegetationPlacements TREE
 accessible field net/minecraft/data/loot/BlockLootSubProvider NORMAL_LEAVES_STICK_CHANCES [F
 accessible field net/minecraft/client/resources/sounds/AbstractSoundInstance volume F
 accessible field net/minecraft/client/resources/sounds/AbstractSoundInstance pitch F
+accessible method net/minecraft/world/level/block/CropBlock hasSufficientLight (Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z
+accessible method net/minecraft/world/level/block/CropBlock getGrowthSpeed (Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)F

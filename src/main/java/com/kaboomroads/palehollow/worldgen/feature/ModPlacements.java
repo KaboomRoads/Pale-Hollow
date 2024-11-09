@@ -21,6 +21,7 @@ public class ModPlacements {
     public static final ResourceKey<PlacedFeature> TREES_PALE_HOLLOW = createKey("trees_pale_hollow");
     public static final ResourceKey<PlacedFeature> TAR_POOL = createKey("tar_pool");
     public static final ResourceKey<PlacedFeature> PALE_HANGING_MOSS_PATCH = createKey("pale_hanging_moss_patch");
+    public static final ResourceKey<PlacedFeature> PALEFRUIT_PLANT_PATCH = createKey("palefruit_plant_patch");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
@@ -74,6 +75,17 @@ public class ModPlacements {
                 PALE_HANGING_MOSS_PATCH,
                 holderGetter.getOrThrow(ModConfigurations.PALE_HANGING_MOSS_PATCH),
                 CountPlacement.of(188),
+                InSquarePlacement.spread(),
+                PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
+                EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12),
+                RandomOffsetPlacement.vertical(ConstantInt.of(-1)),
+                BiomeFilter.biome()
+        );
+        PlacementUtils.register(
+                bootstrapContext,
+                PALEFRUIT_PLANT_PATCH,
+                holderGetter.getOrThrow(ModConfigurations.PALEFRUIT_PLANT_PATCH),
+                CountPlacement.of(32),
                 InSquarePlacement.spread(),
                 PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
                 EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12),

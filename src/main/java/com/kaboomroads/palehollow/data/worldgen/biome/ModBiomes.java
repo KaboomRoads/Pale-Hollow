@@ -50,6 +50,7 @@ public class ModBiomes {
         builder2.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacements.PALE_HOLLOW_MOSS_PATCH);
         builder2.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModPlacements.TAR_POOL);
         builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacements.PALE_HANGING_MOSS_PATCH);
+        builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacements.PALEFRUIT_PLANT_PATCH);
         BiomeDefaultFeatures.addPlainGrass(builder2);
         BiomeDefaultFeatures.addPlainVegetation(builder2);
         BiomeDefaultFeatures.addDefaultMushrooms(builder2);

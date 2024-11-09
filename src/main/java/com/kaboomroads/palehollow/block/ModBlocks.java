@@ -232,6 +232,17 @@ public class ModBlocks {
     public static final Block POTTED_TARFLOWER = register(
             "potted_tarflower", properties -> new FlowerPotBlock(TARFLOWER, properties), Blocks.flowerPotProperties()
     );
+    public static final Block PALEFRUIT_PLANT = register(
+            "palefruit_plant",
+            PalefruitPlantBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .noCollission()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.CROP)
+                    .pushReaction(PushReaction.DESTROY)
+    );
 
     public static Block registerStair(String name, Block block) {
         return register(name, properties -> new StairBlock(block.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(block));

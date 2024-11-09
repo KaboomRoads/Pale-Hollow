@@ -2,17 +2,16 @@ package com.kaboomroads.palehollow.data;
 
 import com.kaboomroads.palehollow.block.ModBlockFamilies;
 import com.kaboomroads.palehollow.block.ModBlocks;
+import com.kaboomroads.palehollow.block.custom.PalefruitPlantBlock;
 import com.kaboomroads.palehollow.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.blockstates.Condition;
-import net.minecraft.data.models.blockstates.MultiPartGenerator;
-import net.minecraft.data.models.blockstates.Variant;
-import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.blockstates.*;
 import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
@@ -34,6 +33,7 @@ public class ModModelProvider extends FabricModelProvider {
         generator.createPlant(ModBlocks.MUTE_SAPLING, ModBlocks.POTTED_MUTE_SAPLING, BlockModelGenerators.TintState.NOT_TINTED);
         generator.createPlant(ModBlocks.TARFLOWER, ModBlocks.POTTED_TARFLOWER, BlockModelGenerators.TintState.NOT_TINTED);
         generator.createRotatedVariantBlock(ModBlocks.RAW_TAR);
+        createPalefruitPlant(generator);
     }
 
     @Override
@@ -42,6 +42,21 @@ public class ModModelProvider extends FabricModelProvider {
         generator.generateFlatItem(ModItems.MUTE_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.RAW_TAR_CHUNK, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.TAR, ModelTemplates.FLAT_ITEM);
+    }
+
+    private void createPalefruitPlant(BlockModelGenerators generator) {
+        Block block = ModBlocks.PALEFRUIT_PLANT;
+        generator.createSimpleFlatItemModel(block.asItem());
+        PropertyDispatch propertyDispatch = PropertyDispatch.properties(PalefruitPlantBlock.AGE, BlockStateProperties.DOUBLE_BLOCK_HALF)
+                .generate((age, half) -> switch (half) {
+                    case UPPER ->
+                            Variant.variant().with(VariantProperties.MODEL, generator.createSuffixedVariant(block, "_upper_stage_" + age, ModelTemplates.CROSS, TextureMapping::cross));
+                    case LOWER -> PalefruitPlantBlock.isDouble(age)
+                            ? Variant.variant().with(VariantProperties.MODEL, generator.createSuffixedVariant(block, "_lower_stage_" + age, ModelTemplates.CROSS, TextureMapping::cross))
+                            : Variant.variant().with(VariantProperties.MODEL, generator.createSuffixedVariant(block, "_lower_stage_" + age, ModelTemplates.PARTICLE_ONLY,
+                            resourceLocation -> TextureMapping.particle(TextureMapping.getBlockTexture(block, "_lower_stage_2"))));
+                });
+        generator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(propertyDispatch));
     }
 
     private void createVoidgrassBlock(BlockModelGenerators generator) {
