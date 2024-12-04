@@ -1,4 +1,4 @@
-package com.kaboomroads.palehollow.data.worldgen.biome;
+package com.kaboomroads.palehollow.worldgen;
 
 import com.kaboomroads.palehollow.PaleHollow;
 import com.kaboomroads.palehollow.worldgen.feature.ModPlacements;

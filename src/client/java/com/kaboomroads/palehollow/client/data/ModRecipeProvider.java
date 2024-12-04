@@ -1,4 +1,4 @@
-package com.kaboomroads.palehollow.data;
+package com.kaboomroads.palehollow.client.data;
 
 import com.google.common.collect.ImmutableList;
 import com.kaboomroads.palehollow.block.ModBlocks;
@@ -10,8 +10,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SuspiciousEffectHolder;
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +26,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         return new RecipeProvider(provider, recipeOutput) {
             @Override
             public void buildRecipes() {
-                generateForEnabledBlockFamilies(FeatureFlagSet.of(FeatureFlags.WINTER_DROP));
                 hangingSign(ModItems.MUTE_HANGING_SIGN, ModBlocks.STRIPPED_MUTE_LOG);
                 planksFromLog(ModBlocks.MUTE_PLANKS, ModItemTags.MUTE_LOGS, 4);
                 woodFromLogs(ModBlocks.MUTE_WOOD, ModBlocks.MUTE_LOG);

@@ -1,4 +1,4 @@
-package com.kaboomroads.palehollow.data;
+package com.kaboomroads.palehollow.client.data;
 
 import com.kaboomroads.palehollow.block.ModBlocks;
 import com.kaboomroads.palehollow.block.custom.PalefruitPlantBlock;

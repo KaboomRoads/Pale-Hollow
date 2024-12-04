@@ -1,6 +1,5 @@
 package com.kaboomroads.palehollow.worldgen;
 
-import com.kaboomroads.palehollow.data.worldgen.biome.ModBiomes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;

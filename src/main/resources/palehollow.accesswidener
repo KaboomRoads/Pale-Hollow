@@ -9,7 +9,7 @@ accessible method net/minecraft/world/entity/EntityType chestBoatFactory (Ljava/
 accessible method net/minecraft/world/level/block/SpreadingSnowyDirtBlock canBeGrass (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z
 accessible method net/minecraft/world/level/block/SpreadingSnowyDirtBlock canPropagate (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z
 accessible field net/minecraft/world/level/block/state/properties/IntegerProperty max I
-accessible field net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity cookingProgress I
+accessible field net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity cookingTimer I
 accessible field net/minecraft/data/worldgen/placement/VegetationPlacements TREE_THRESHOLD Lnet/minecraft/world/level/levelgen/placement/PlacementModifier;
 accessible field net/minecraft/data/loot/BlockLootSubProvider NORMAL_LEAVES_STICK_CHANCES [F
 accessible field net/minecraft/client/resources/sounds/AbstractSoundInstance volume F

@@ -1,7 +1,7 @@
 package com.kaboomroads.palehollow.mixin;
 
 import com.google.common.collect.ImmutableSet;
-import com.kaboomroads.palehollow.data.worldgen.biome.ModBiomes;
+import com.kaboomroads.palehollow.worldgen.ModBiomes;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;

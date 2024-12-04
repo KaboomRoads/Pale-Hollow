@@ -1,9 +1,9 @@
-package com.kaboomroads.palehollow.data;
+package com.kaboomroads.palehollow.client.data;
 
-import com.kaboomroads.palehollow.data.tags.ModBiomeTagsProvider;
-import com.kaboomroads.palehollow.data.tags.ModBlockTagProvider;
-import com.kaboomroads.palehollow.data.tags.ModItemTagProvider;
-import com.kaboomroads.palehollow.data.worldgen.biome.ModBiomes;
+import com.kaboomroads.palehollow.client.data.tags.ModBiomeTagsProvider;
+import com.kaboomroads.palehollow.client.data.tags.ModBlockTagProvider;
+import com.kaboomroads.palehollow.client.data.tags.ModItemTagProvider;
+import com.kaboomroads.palehollow.worldgen.ModBiomes;
 import com.kaboomroads.palehollow.worldgen.feature.ModConfigurations;
 import com.kaboomroads.palehollow.worldgen.feature.ModPlacements;
 import com.kaboomroads.palehollow.worldgen.feature.ModTreeFeatures;

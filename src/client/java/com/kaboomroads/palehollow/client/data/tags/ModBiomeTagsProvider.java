@@ -1,6 +1,6 @@
-package com.kaboomroads.palehollow.data.tags;
+package com.kaboomroads.palehollow.client.data.tags;
 
-import com.kaboomroads.palehollow.data.worldgen.biome.ModBiomes;
+import com.kaboomroads.palehollow.worldgen.ModBiomes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;

@@ -1,15 +1,15 @@
-package com.kaboomroads.palehollow.data;
+package com.kaboomroads.palehollow.client.data;
 
 import com.kaboomroads.palehollow.block.ModBlockFamilies;
 import com.kaboomroads.palehollow.block.ModBlocks;
 import com.kaboomroads.palehollow.block.custom.PalefruitPlantBlock;
 import com.kaboomroads.palehollow.item.ModItems;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.blockstates.*;
-import net.minecraft.data.models.model.*;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.blockstates.*;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -27,11 +27,11 @@ public class ModModelProvider extends FabricModelProvider {
         generator.family(ModBlockFamilies.MUTE_PLANKS.getBaseBlock()).generateFor(ModBlockFamilies.MUTE_PLANKS);
         generator.createHangingSign(ModBlocks.STRIPPED_MUTE_LOG, ModBlocks.MUTE_HANGING_SIGN, ModBlocks.MUTE_WALL_HANGING_SIGN);
         createPalethorn(generator);
-        generator.createCrossBlockWithDefaultItem(ModBlocks.VOIDGRASS, BlockModelGenerators.TintState.NOT_TINTED);
+        generator.createCrossBlockWithDefaultItem(ModBlocks.VOIDGRASS, BlockModelGenerators.PlantType.NOT_TINTED);
         createVoidgrassBlock(generator);
         generator.createTrivialCube(ModBlocks.PALE_DIRT);
-        generator.createPlant(ModBlocks.MUTE_SAPLING, ModBlocks.POTTED_MUTE_SAPLING, BlockModelGenerators.TintState.NOT_TINTED);
-        generator.createPlant(ModBlocks.TARFLOWER, ModBlocks.POTTED_TARFLOWER, BlockModelGenerators.TintState.NOT_TINTED);
+        generator.createPlantWithDefaultItem(ModBlocks.MUTE_SAPLING, ModBlocks.POTTED_MUTE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        generator.createPlantWithDefaultItem(ModBlocks.TARFLOWER, ModBlocks.POTTED_TARFLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
         generator.createRotatedVariantBlock(ModBlocks.RAW_TAR);
         createPalefruitPlant(generator);
     }
@@ -42,11 +42,11 @@ public class ModModelProvider extends FabricModelProvider {
         generator.generateFlatItem(ModItems.MUTE_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.RAW_TAR_CHUNK, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.TAR, ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ModItems.PALEFRUIT, ModelTemplates.FLAT_ITEM);
     }
 
     private void createPalefruitPlant(BlockModelGenerators generator) {
         Block block = ModBlocks.PALEFRUIT_PLANT;
-        generator.createSimpleFlatItemModel(block.asItem());
         PropertyDispatch propertyDispatch = PropertyDispatch.properties(PalefruitPlantBlock.AGE, BlockStateProperties.DOUBLE_BLOCK_HALF)
                 .generate((age, half) -> switch (half) {
                     case UPPER ->

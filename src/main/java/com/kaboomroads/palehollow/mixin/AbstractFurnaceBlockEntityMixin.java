@@ -16,6 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class AbstractFurnaceBlockEntityMixin {
     @Inject(method = "serverTick", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity;canBurn(Lnet/minecraft/core/RegistryAccess;Lnet/minecraft/world/item/crafting/RecipeHolder;Lnet/minecraft/world/item/crafting/SingleRecipeInput;Lnet/minecraft/core/NonNullList;I)Z", ordinal = 1))
     private static void modifyCookingSpeed(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, AbstractFurnaceBlockEntity abstractFurnaceBlockEntity, CallbackInfo ci, @Local(ordinal = 0) ItemStack itemStack) {
-        if (itemStack.is(ModItems.TAR)) abstractFurnaceBlockEntity.cookingProgress++;
+        if (itemStack.is(ModItems.TAR)) abstractFurnaceBlockEntity.cookingTimer++;
     }
 }

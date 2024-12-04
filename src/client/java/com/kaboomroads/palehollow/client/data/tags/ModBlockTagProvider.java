@@ -1,4 +1,4 @@
-package com.kaboomroads.palehollow.data.tags;
+package com.kaboomroads.palehollow.client.data.tags;
 
 import com.kaboomroads.palehollow.block.ModBlocks;
 import com.kaboomroads.palehollow.tag.ModBlockTags;

@@ -1,6 +1,6 @@
 //package com.kaboomroads.palehollow.worldgen;
 //
-//import com.kaboomroads.palehollow.data.worldgen.biome.ModBiomes;
+//import com.kaboomroads.palehollow.worldgen.ModBiomes;
 //import com.mojang.datafixers.util.Pair;
 //import net.minecraft.core.Registry;
 //import net.minecraft.resources.ResourceKey;

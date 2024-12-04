@@ -1,6 +1,6 @@
 package com.kaboomroads.palehollow.client.mixin;
 
-import com.kaboomroads.palehollow.data.worldgen.biome.ModBiomes;
+import com.kaboomroads.palehollow.worldgen.ModBiomes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.sounds.AbstractSoundInstance;
