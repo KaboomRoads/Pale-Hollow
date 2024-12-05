@@ -222,7 +222,6 @@ public class ModBlocks {
             properties -> new UndergroundFlowerBlock(MobEffects.BLINDNESS, 12.0F, properties),
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
-                    .replaceable()
                     .noCollission()
                     .instabreak()
                     .sound(SoundType.GRASS)
