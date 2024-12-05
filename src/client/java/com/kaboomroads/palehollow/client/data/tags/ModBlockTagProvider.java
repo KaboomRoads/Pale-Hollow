@@ -101,6 +101,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.RAW_TAR)
+                .add(ModBlocks.ETERNAL_LANTERN)
         ;
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                 .add(ModBlocks.TARFLOWER)

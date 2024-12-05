@@ -35,6 +35,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 oneToOneConversionRecipe(Items.BLACK_DYE, ModBlocks.TARFLOWER, "black_dye");
                 oreSmelting(ImmutableList.of(ModItems.RAW_TAR, ModItems.RAW_TAR_CHUNK), RecipeCategory.MISC, ModItems.TAR, 0.7F, 400, "tar");
                 suspiciousStew(ModItems.TARFLOWER, SuspiciousEffectHolder.tryGet(ModItems.TARFLOWER));
+                shaped(RecipeCategory.DECORATIONS, ModBlocks.ETERNAL_LANTERN)
+                        .define('#', ModItems.TAR)
+                        .define('X', Items.IRON_NUGGET)
+                        .pattern("XXX")
+                        .pattern("X X")
+                        .pattern("X#X")
+                        .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
+                        .unlockedBy("has_tar", has(ModItems.TAR))
+                        .save(output);
             }
         };
     }

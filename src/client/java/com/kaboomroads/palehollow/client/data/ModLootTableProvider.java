@@ -80,5 +80,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                 )
                 )
         );
+        add(ModBlocks.ETERNAL_LANTERN, this::createSingleItemTable);
     }
 }

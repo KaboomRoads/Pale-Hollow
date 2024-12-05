@@ -57,6 +57,7 @@ public class ModItems {
     public static final Item TAR = registerItem("tar");
     public static final Item TARFLOWER = registerBlock(ModBlocks.TARFLOWER);
     public static final Item PALEFRUIT = registerItem("palefruit", createBlockItemWithCustomItemName(ModBlocks.PALEFRUIT_PLANT), new Item.Properties().food(ModFoods.PALEFRUIT));
+    public static final Item ETERNAL_LANTERN = registerBlock(ModBlocks.ETERNAL_LANTERN);
 
     private static Function<Item.Properties, Item> createBlockItemWithCustomItemName(Block block) {
         return properties -> new BlockItem(block, properties.useItemDescriptionPrefix());

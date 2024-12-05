@@ -242,6 +242,18 @@ public class ModBlocks {
                     .sound(SoundType.CROP)
                     .pushReaction(PushReaction.DESTROY)
     );
+    public static final Block ETERNAL_LANTERN = register(
+            "eternal_lantern",
+            EternalLanternBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.DEEPSLATE)
+                    .forceSolidOn()
+                    .strength(3.5F)
+                    .sound(SoundType.LANTERN)
+                    .lightLevel(blockStatex -> 15)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.DESTROY)
+    );
 
     public static Block registerStair(String name, Block block) {
         return register(name, properties -> new StairBlock(block.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(block));

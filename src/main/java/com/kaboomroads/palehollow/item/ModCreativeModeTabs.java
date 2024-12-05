@@ -43,6 +43,7 @@ public class ModCreativeModeTabs {
                         output.accept(new ItemStack(ModItems.RAW_TAR_CHUNK));
                         output.accept(new ItemStack(ModItems.TAR));
                         output.accept(new ItemStack(ModItems.PALEFRUIT));
+                        output.accept(new ItemStack(ModItems.ETERNAL_LANTERN));
                     })
                     .title(Component.translatable("itemGroup.pale_hollow.pale_hollow"))
                     .build()

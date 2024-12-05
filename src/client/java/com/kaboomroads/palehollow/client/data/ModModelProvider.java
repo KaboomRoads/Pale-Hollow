@@ -34,6 +34,7 @@ public class ModModelProvider extends FabricModelProvider {
         generator.createPlantWithDefaultItem(ModBlocks.TARFLOWER, ModBlocks.POTTED_TARFLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
         generator.createRotatedVariantBlock(ModBlocks.RAW_TAR);
         createPalefruitPlant(generator);
+        createEternalLantern(generator);
     }
 
     @Override
@@ -43,6 +44,11 @@ public class ModModelProvider extends FabricModelProvider {
         generator.generateFlatItem(ModItems.RAW_TAR_CHUNK, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.TAR, ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ModItems.PALEFRUIT, ModelTemplates.FLAT_ITEM);
+    }
+
+    private void createEternalLantern(BlockModelGenerators generator) {
+        generator.registerSimpleFlatItemModel(ModBlocks.ETERNAL_LANTERN.asItem());
+        generator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(ModBlocks.ETERNAL_LANTERN).with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.HANGING, ModelLocationUtils.getModelLocation(ModBlocks.ETERNAL_LANTERN, "_hanging"), ModelLocationUtils.getModelLocation(ModBlocks.ETERNAL_LANTERN))));
     }
 
     private void createPalefruitPlant(BlockModelGenerators generator) {
