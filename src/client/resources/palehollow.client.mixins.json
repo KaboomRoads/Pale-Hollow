@@ -4,9 +4,15 @@
   "package": "com.kaboomroads.palehollow.client.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "SoundEngineMixin"
+    "MusicInfoMixin",
+    "MusicManagerMixin",
+    "SoundEngineMixin",
+    "SoundManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "MinecraftMixin"
+  ]
 }
