@@ -32,6 +32,11 @@ public abstract class MusicManagerMixin {
         currentPitch = ((ModMusicInfo) (Object) musicInfo).palehollow$getPitch();
     }
 
+    @Inject(method = "startPlaying", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sounds/SoundManager;setVolume(Lnet/minecraft/client/resources/sounds/SoundInstance;F)V", ordinal = 0))
+    private void setPitchAtStart(MusicInfo musicInfo, CallbackInfo ci) {
+        ((ModSoundManager) minecraft.getSoundManager()).palehollow$setPitch(currentMusic, ((ModMusicInfo) (Object) musicInfo).palehollow$getPitch());
+    }
+
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sounds/MusicInfo;music()Lnet/minecraft/sounds/Music;", ordinal = 0))
     private void tickPitch(CallbackInfo ci, @Local(ordinal = 0) MusicInfo musicInfo) {
         float f = ((ModMusicInfo) (Object) musicInfo).palehollow$getPitch();
