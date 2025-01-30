@@ -18,6 +18,9 @@
     ],
     "main": [
       "com.kaboomroads.palehollow.PaleHollow"
+    ],
+    "terrablender": [
+      "com.kaboomroads.palehollow.worldgen.terrablender.ModTerraBlenderApi"
     ]
   },
   "accessWidener": "${modid}.accesswidener",
